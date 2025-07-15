@@ -1,7 +1,10 @@
-# Python Threading Example: Countdown Timers
+# Threading Experiment in Python
 
-This project is a simple demonstration of Python multithreading using the threading module.  
-It creates multiple countdown timers that run in parallel, simulating concurrent tasks.
+This project is a practice script demonstrating multithreading in Python using the built-in threading module.
+
+It attempts to launch multiple threads under specific limits, simulating basic control over concurrent execution.
+
+
 
 # installation
 `bash`
@@ -15,51 +18,24 @@ and you should import:
 import threading
 import time
 ```
+## What It Does
 
-## Purpose
+- Defines two functions: test1 (single print and sleep) and test2 (looped print and sleep).
+- Tries to run:
+  - test1 threads only if 2 or fewer with name "test1" are running
+  - test2 threads only if 3 or fewer with name "test2" are running
+- Each thread prints its assigned value and sleeps for a short, random time.
+- The script stops after i = 9.
+- The code attempts to control how many threads of each type are running simultaneously.
 
-To show how you can:
-- Create and start multiple threads
-- Pass arguments to thread functions
-- Use thread.join() to wait for threads to finish
-- Observe interleaved (mixed) output due to parallel execution
-
+- Thread names are used to count active threads using threading.enumerate().
 ---
 
-## How to Run ?
 
-1. Save the script as thread.py
-2. Run it using:
+## How to Run
+
+1. Save the script as test.py
+2. Run it via terminal:
 
 `bash`
-python thread.py
-
-### Output Example
-
-Because threads run in parallel, the printed output will be interleaved.
-Each thread prints its name and countdown step every second.
-
-Thread A → 5
-
-Thread B → 3
-
-Thread C → 7
-
-Thread B → 2
-
-Thread A → 4
-
-...
-
-Thread C finished!
- All threads completed.
-
----
-### What is thread.join()?
-
-thread.start() → Starts a new thread.
-
-thread.join() → Tells Python: “Wait here until this thread finishes.”
-
-
-This ensures that the main program doesn't exit before all threads complete their tasks.
+python test.py
